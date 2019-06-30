@@ -18,21 +18,41 @@ StackNode* newNode(int data)
   
 int isEmpty(StackNode* root) 
 { 
-    //Your code here 
+    if(root==NULL){
+        return true;
+    }
+    return false;//Your code here
 } 
   
 void push(StackNode** root, int data) 
-{ 
-    //Your code here 
+{
+    StackNode* node = newNode(data);
+    node->next=(*root);
+    (*root) = node;
+    //Your code here
 } 
   
 int pop(StackNode** root) 
-{ 
+{
+    if(isEmpty((*root))){
+        cout<<"Stack Underflow"<<endl;
+        return 0;
+    }
+    StackNode* temp = (*root);
+    (*root) = (*root)->next;
+    int ret = temp->data;
+    delete temp;
+    return ret;
     //Your code here 
 } 
   
 int peek(StackNode* root) 
-{ 
+{
+    if(isEmpty(root)){
+//        cout<<"Stack Underflow"<<endl;
+        return 0;
+    }
+    return root->data;
     //Your code here 
 } 
   
@@ -40,9 +60,9 @@ int main()
 { 
     StackNode* root = NULL; 
   
-    push(&root, 10); 
-    push(&root, 20); 
-    push(&root, 30); 
+    push(&root, 10);
+    push(&root, 20);
+    push(&root, 30);
   
     cout << pop(&root) << " popped from stack\n"; 
   
