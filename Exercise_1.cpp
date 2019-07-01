@@ -21,10 +21,10 @@ public:
     bool Stack::push(int x){
         if(counter<MAX){
             a[counter]=x;
-            cout<<"counter : "<<counter<<endl;
+//            cout<<"counter : "<<counter<<endl;
             top=x;
             counter++; size++;
-            cout<<"Count : "<<counter<<" Size : "<<size<<endl;
+//            cout<<"Count : "<<counter<<" Size : "<<size<<endl;
             return true;
         }
         cout<<"Stack Overflow"<<endl;
@@ -39,10 +39,11 @@ public:
             cout<<"Stack Underflow"<<endl;
         }else{
             counter--;
-            cout<<"Pop counter : "<<counter<<endl;
+//            cout<<"Pop counter : "<<counter<<endl;
             ret = a[counter];
             top=a[size-2];
-            cout<<"TOP : "<<top<<endl;
+            size--;
+//            cout<<"TOP : "<<top<<endl;
 
         }
         return ret;
